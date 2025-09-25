@@ -1,12 +1,11 @@
-import LoginForm from '../ui/login.form';
+'use client';
+import MaterioLogin from '../ui/components/new.login';
 
 export default function LoginPage() {
 	return (
-		<div className="min-h-screen flex items-center justify-center">
-			<div className="max-w-md w-full space-y-8 p-8">
-				<h1 className="text-3xl font-bold text-center">Login</h1>
-				<LoginForm />
-			</div>
-		</div>
+		<MaterioLogin
+			imageUrl="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2070&auto=format&fit=crop"
+			onSubmit={(data) => console.log('submit', data)}
+		/>
 	);
 }

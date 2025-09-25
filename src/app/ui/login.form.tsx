@@ -1,6 +1,6 @@
 'use client';
-import { useActionState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useActionState, useEffect } from 'react';
 import { logIn } from '../actions/auth';
 import { FormState } from '../lib/definitions';
 
@@ -101,7 +101,7 @@ export default function LoginForm() {
 				disabled={pending}
 				className="inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-60"
 			>
-				{pending ? 'Logging in…' : 'Login'}
+				{pending ? 'Logging in…' : 'Hello'}
 			</button>
 		</form>
 	);
