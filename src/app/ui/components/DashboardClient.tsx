@@ -1,14 +1,17 @@
 'use client';
-import { LogOut, MapPin, Search, Stethoscope, User as UserIcon } from 'lucide-react';
-import React, { useMemo, useState } from 'react';
+import { fullCityScan } from '@/app/actions/scrapper';
+import { MapPin, Search, Stethoscope, User as UserIcon } from 'lucide-react';
+import React, { useActionState, useMemo, useState } from 'react';
 import Navbar from './Navbar';
 
+const initial = { results: [] as string[], error: '' };
 export default function DashboardClient({ username }: { username: string }) {
 	const [doctorType, setDoctorType] = useState('');
 	const [cityState, setCityState] = useState('');
 	const [open, setOpen] = useState(false);
-	const [submitting, setSubmitting] = useState(false);
 	const [results, setResults] = useState<string[]>([]);
+
+	const [state, action, pending] = useActionState(fullCityScan, initial);
 
 	// Example suggestions; swap with real data source/autocomplete later
 	const suggestions = useMemo(
@@ -33,21 +36,6 @@ export default function DashboardClient({ username }: { username: string }) {
 		return suggestions.filter((s) => s.toLowerCase().includes(q));
 	}, [cityState, suggestions]);
 
-	const handleGenerate = async (e: React.FormEvent) => {
-		e.preventDefault();
-		setSubmitting(true);
-		try {
-			// Replace with a real API call, e.g. /api/generate
-			// await fetch("/api/generate", { method: "POST", body: JSON.stringify({ doctorType, cityState }) });
-			await new Promise((r) => setTimeout(r, 600));
-			setResults([
-				`Generated leads for ${doctorType || '(type)'} in ${cityState || '(city, state)'}`,
-			]);
-		} finally {
-			setSubmitting(false);
-		}
-	};
-
 	return (
 		<div className="min-h-screen">
 			<Navbar username={username} />
@@ -62,9 +50,19 @@ export default function DashboardClient({ username }: { username: string }) {
 				<section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
 					<h2 className="mb-4 text-lg font-semibold">Generate Leads</h2>
 					<form
-						onSubmit={handleGenerate}
+						// onSubmit={handleGenerate}
+						action={action}
 						className="grid grid-cols-1 gap-4 md:grid-cols-[1fr,1fr,160px]"
 					>
+						{state?.error ? (
+							<div
+								role="alert"
+								aria-live="polite"
+								className="mb-3 rounded border border-red-300 bg-red-50 p-3 text-sm text-red-800"
+							>
+								<p>{state.error}</p>
+							</div>
+						) : null}
 						{/* Doctor type */}
 						<div>
 							<label className="mb-1 block text-sm font-medium text-gray-700">Type of doctor</label>
@@ -74,6 +72,7 @@ export default function DashboardClient({ username }: { username: string }) {
 								</span>
 								<input
 									value={doctorType}
+									name="profession"
 									onChange={(e) => setDoctorType(e.target.value)}
 									placeholder="e.g. Cardiologist, Dermatologist"
 									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
@@ -90,6 +89,7 @@ export default function DashboardClient({ username }: { username: string }) {
 								</span>
 								<input
 									value={cityState}
+									name="cityState"
 									onChange={(e) => {
 										setCityState(e.target.value);
 										setOpen(true);
@@ -125,11 +125,11 @@ export default function DashboardClient({ username }: { username: string }) {
 						<div className="flex items-end">
 							<button
 								type="submit"
-								disabled={submitting}
+								disabled={pending}
 								className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 py-3 font-medium text-white shadow-lg shadow-violet-600/20 transition hover:bg-violet-700 disabled:opacity-70"
 							>
 								<Search className="h-5 w-5" />
-								{submitting ? 'Generating...' : 'Generate'}
+								{pending ? 'Generating...' : 'Generate'}
 							</button>
 						</div>
 					</form>

@@ -57,7 +57,15 @@ export async function signUp(_state: FormState, formData: FormData): Promise<For
 		return { message: 'Registration successful', shouldRedirect: true };
 	} catch (err) {
 		console.error(err);
-		return { errors: { _form: ['Unexpected error'] } };
+		const errorMessage =
+			typeof err === 'object' && err !== null && 'message' in err
+				? (err as { message?: string }).message
+				: undefined;
+		return {
+			errors: {
+				_form: [`The servers are down: ${errorMessage || 'Something went wrong'}.`],
+			},
+		};
 	}
 }
 
@@ -90,9 +98,9 @@ export async function logIn(_state: FormState, formData: FormData): Promise<Form
 
 		if (!res.ok) {
 			if (res.status === 404 && res.statusText === 'Not Found') {
-				return { errors: { _form: ['Invalid credentials'] } };
+				return { errors: { _form: ['Username or password is incorrect'] } };
 			}
-			return { errors: { _form: ['Login failed'] } };
+			return { errors: { _form: [`Login failed ${res.statusText}`] } };
 		}
 
 		const { access_token } = await res.json();
@@ -115,7 +123,15 @@ export async function logIn(_state: FormState, formData: FormData): Promise<Form
 		return { message: 'Login successful', shouldRedirect: true };
 	} catch (err) {
 		console.error(err);
-		return { errors: { _form: ['Unexpected error'] } };
+		const errorMessage =
+			typeof err === 'object' && err !== null && 'message' in err
+				? (err as { message?: string }).message
+				: undefined;
+		return {
+			errors: {
+				_form: [`The servers are down: ${errorMessage || 'Something went wrong'}.`],
+			},
+		};
 	}
 }
 
