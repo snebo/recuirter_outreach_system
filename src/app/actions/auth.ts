@@ -67,7 +67,6 @@ export async function signUp(_state: FormState, formData: FormData): Promise<For
 export async function logIn(_state: FormState, formData: FormData): Promise<FormState> {
 	const form = {
 		username: formData.get('username'),
-		email: formData.get('email'),
 		password: formData.get('password'),
 		// TODO: add rememberMe
 		rememberMe: formData.get('rememberMe') === 'on',
@@ -76,9 +75,8 @@ export async function logIn(_state: FormState, formData: FormData): Promise<Form
 	const parsed = logInFormSchema.safeParse(form);
 	if (!parsed.success) return { errors: parsed.error.flatten().fieldErrors };
 
-	const { username, email, password, rememberMe } = parsed.data as {
+	const { username, password, rememberMe } = parsed.data as {
 		username?: string;
-		email?: string;
 		password: string;
 		rememberMe?: boolean;
 	};
@@ -87,7 +85,7 @@ export async function logIn(_state: FormState, formData: FormData): Promise<Form
 		const res = await fetch(`${NEST_BASE_URL}/auth/login`, {
 			method: 'POST',
 			headers: { 'content-type': 'application/json' },
-			body: JSON.stringify({ username, email, password }),
+			body: JSON.stringify({ username, password }),
 		});
 
 		if (!res.ok) {

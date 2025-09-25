@@ -12,6 +12,7 @@ import {
 	Mail,
 	TrendingUp,
 	Twitter,
+	User,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -25,7 +26,6 @@ export default function MaterioLogin({
 	imageUrl?: string;
 	onSubmit?: (data: { email: string; password: string; remember: boolean }) => void;
 }) {
-	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [showPassword, setShowPassword] = useState(false);
 	const [remember, setRemember] = useState(false);
@@ -131,32 +131,29 @@ export default function MaterioLogin({
 									{state.message}
 								</div>
 							) : null}
-							<label className="block text-sm font-medium text-gray-700" htmlFor="email">
-								Email
+							<label className="block text-sm font-medium text-gray-700" htmlFor="username">
+								Username
 							</label>
 							<div className="relative">
 								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-									<Mail className="h-5 w-5" />
+									<User className="h-5 w-5" />
 								</span>
 								<input
-									id="email"
-									name="email"
-									type="email"
+									id="username"
+									name="username"
+									type="text"
 									required
-									value={email}
-									onChange={(e) => setEmail(e.target.value)}
-									placeholder="you@example.com"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
-									aria-invalid={Boolean(state?.errors?.email?.length) || undefined}
-									aria-describedby={state?.errors?.email?.length ? 'email-error' : undefined}
+									placeholder="username"
+									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4"
 								/>
-								{state?.errors?.email?.map((err, i) => (
-									<p id="email-error" key={i} className="mt-1 text-xs text-red-700">
+								{state?.errors?.username?.map((err, i) => (
+									<p id="username-error" key={i} className="mt-1 text-xs text-red-700">
 										{err}
 									</p>
 								))}
 							</div>
 
+							{/* Password */}
 							<label className="block text-sm font-medium text-gray-700" htmlFor="password">
 								Password
 							</label>
@@ -172,7 +169,7 @@ export default function MaterioLogin({
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
 									placeholder="••••••••"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-11 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-11"
 								/>
 								<button
 									type="button"
@@ -184,14 +181,13 @@ export default function MaterioLogin({
 								</button>
 							</div>
 
+							{/* Remember Me */}
 							<div className="flex items-center justify-between pt-1">
-								<label className="inline-flex cursor-pointer items-center gap-2 text-sm text-gray-700">
+								<label className="inline-flex items-center gap-2 text-sm text-gray-700">
 									<input
 										type="checkbox"
-										id="remember"
-										name="remember"
-										checked={remember}
-										onChange={(e) => setRemember(e.target.checked)}
+										id="rememberMe"
+										name="rememberMe" // ✅ matches backend
 										className="h-4 w-4 rounded border-gray-300 text-violet-600 focus:ring-violet-500"
 									/>
 									Remember me
