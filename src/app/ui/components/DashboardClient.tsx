@@ -143,12 +143,12 @@ export default function DashboardClient({ username }: { username: string }) {
 	const pending = status === 'queued' || status === 'running';
 
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-screen bg-white text-gray-900 antialiased">
 			<Navbar username={username} />
 
 			<main className="mx-auto max-w-6xl px-6 py-10">
 				<header className="mb-8">
-					<h1 className="text-2xl font-bold">Welcome back, {username}! 👋</h1>
+					<h1 className="text-2xl font-bold text-gray-900">Welcome back, {username}! 👋</h1>
 					<p className="text-sm text-gray-600">Search for health professionals in your city</p>
 				</header>
 
