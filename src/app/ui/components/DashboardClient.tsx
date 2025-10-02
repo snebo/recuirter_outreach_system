@@ -143,17 +143,17 @@ export default function DashboardClient({ username }: { username: string }) {
 	const pending = status === 'queued' || status === 'running';
 
 	return (
-		<div className="min-h-screen bg-white text-gray-900 antialiased">
+		<div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
 			<Navbar username={username} />
 
 			<main className="mx-auto max-w-6xl px-6 py-10">
 				<header className="mb-8">
-					<h1 className="text-2xl font-bold text-gray-900">Welcome back, {username}! 👋</h1>
-					<p className="text-sm text-gray-600">Search for health professionals in your city</p>
+					<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Welcome back, {username}! 👋</h1>
+					<p className="text-sm text-gray-600 dark:text-gray-400">Search for health professionals in your city</p>
 				</header>
 
 				{/* Generator Card */}
-				<section className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+				<section className="rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
 					<h2 className="mb-4 text-lg font-semibold">Generate Leads</h2>
 
 					<form onSubmit={onSubmit} className="grid grid-cols-1 gap-4 md:grid-cols-[1fr,1fr,160px]">
@@ -169,9 +169,9 @@ export default function DashboardClient({ username }: { username: string }) {
 
 						{/* Doctor type */}
 						<div>
-							<label className="mb-1 block text-sm font-medium text-gray-700">Type of doctor</label>
+							<label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Type of doctor</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<Stethoscope className="h-5 w-5" />
 								</span>
 								<input
@@ -179,16 +179,16 @@ export default function DashboardClient({ username }: { username: string }) {
 									value={doctorType}
 									onChange={(e) => setDoctorType(e.target.value)}
 									placeholder="e.g. Cardiologist, Dermatologist"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
 								/>
 							</div>
 						</div>
 
 						{/* City, State combobox */}
 						<div>
-							<label className="mb-1 block text-sm font-medium text-gray-700">City, state</label>
+							<label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">City, state</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<MapPin className="h-5 w-5" />
 								</span>
 								<input
@@ -201,10 +201,10 @@ export default function DashboardClient({ username }: { username: string }) {
 									onFocus={() => setOpen(true)}
 									onBlur={() => setTimeout(() => setOpen(false), 150)}
 									placeholder="e.g. Miami, FL"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
 								/>
 								{open && filtered.length > 0 && (
-									<ul className="absolute z-20 mt-2 max-h-56 w-full overflow-auto rounded-xl border border-gray-200 bg-white p-1 shadow-xl">
+									<ul className="absolute z-20 mt-2 max-h-56 w-full overflow-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-1 shadow-xl">
 										{filtered.map((s) => (
 											<li key={s}>
 												<button
@@ -214,7 +214,7 @@ export default function DashboardClient({ username }: { username: string }) {
 														setCityState(s);
 														setOpen(false);
 													}}
-													className="flex w-full items-center justify-start rounded-lg px-3 py-2 text-left text-sm hover:bg-gray-50"
+													className="flex w-full items-center justify-start rounded-lg px-3 py-2 text-left text-sm hover:bg-gray-50 dark:hover:bg-gray-700"
 												>
 													{s}
 												</button>
@@ -239,9 +239,9 @@ export default function DashboardClient({ username }: { username: string }) {
 					</form>
 
 					{/* Status line */}
-					<div className="mt-3 text-sm text-gray-500">
-						Status: <span className="font-medium text-gray-800">{status}</span>
-						{jobId ? <span className="ml-2 text-gray-400">({jobId})</span> : null}
+					<div className="mt-3 text-sm text-gray-500 dark:text-gray-400">
+						Status: <span className="font-medium text-gray-800 dark:text-gray-100">{status}</span>
+						{jobId ? <span className="ml-2 text-gray-400 dark:text-gray-500">({jobId})</span> : null}
 					</div>
 				</section>
 
@@ -263,7 +263,7 @@ export default function DashboardClient({ username }: { username: string }) {
 				<section className="mt-8">
 					{result ? (
 						rows.length > 0 ? (
-							<div className="overflow-x-auto rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+							<div className="rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
 								<div className="mb-3 flex items-center justify-between">
 									<h3 className="text-base font-semibold">
 										{result.sample?.length ? 'Sample Results' : 'Results'} ({rows.length})
@@ -271,49 +271,51 @@ export default function DashboardClient({ username }: { username: string }) {
 									<button
 										type="button"
 										onClick={() => downloadCsv(rows, { cityState, profession: doctorType })}
-										className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium shadow-sm transition hover:bg-gray-50"
+										className="inline-flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-violet-600/20 transition hover:bg-violet-700"
 									>
 										Download CSV
 									</button>
 								</div>
-								<table className="min-w-full text-left text-sm">
-									<thead className="border-b bg-gray-50 text-gray-700">
-										<tr>
-											<Th>Name</Th>
-											<Th>Phone</Th>
-											<Th>Address</Th>
-											<Th>Credentials</Th>
-											<Th>Title</Th>
-											<Th>Position</Th>
-											<Th>NPPES</Th>
-											<Th>City</Th>
-											<Th>Sex</Th>
-										</tr>
-									</thead>
-									<tbody>
-										{rows.map((r, i) => (
-											<tr key={i} className="border-b last:border-b-0">
-												<Td>{`${r.name_prefix ? r.name_prefix + ' ' : ''}${r.firstName} ${
-													r.middleName ? r.middleName + ' ' : ''
-												}${r.lastName}`}</Td>
-												<Td>{r.phoneNumber || '—'}</Td>
-												<Td>{r.address || '—'}</Td>
-												<Td>{r.credentials || '—'}</Td>
-												<Td>{r.title || '—'}</Td>
-												<Td>{r.position || '—'}</Td>
-												<Td>{r.nppesNumber ?? '—'}</Td>
-												<Td>{r.scrappedCity || '—'}</Td>
-												<Td>{r.sex || '—'}</Td>
+								<div className="overflow-x-auto">
+									<table className="w-full text-left text-sm">
+										<thead className="border-b dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+											<tr>
+												<Th className="min-w-[180px]">Name</Th>
+												<Th className="min-w-[130px]">Phone</Th>
+												<Th className="min-w-[200px]">Address</Th>
+												<Th className="min-w-[100px]">Credentials</Th>
+												<Th className="min-w-[150px]">Title</Th>
+												<Th className="min-w-[120px]">Position</Th>
+												<Th className="min-w-[100px]">NPPES</Th>
+												<Th className="min-w-[100px]">City</Th>
+												<Th className="min-w-[60px]">Sex</Th>
 											</tr>
-										))}
-									</tbody>
-								</table>
+										</thead>
+										<tbody>
+											{rows.map((r, i) => (
+												<tr key={i} className="border-b dark:border-gray-700 last:border-b-0">
+													<Td>{`${r.name_prefix ? r.name_prefix + ' ' : ''}${r.firstName} ${
+														r.middleName ? r.middleName + ' ' : ''
+													}${r.lastName}`}</Td>
+													<Td className="whitespace-nowrap">{r.phoneNumber || '—'}</Td>
+													<Td>{r.address || '—'}</Td>
+													<Td>{r.credentials || '—'}</Td>
+													<Td>{r.title || '—'}</Td>
+													<Td>{r.position || '—'}</Td>
+													<Td>{r.nppesNumber ?? '—'}</Td>
+													<Td>{r.scrappedCity || '—'}</Td>
+													<Td>{r.sex || '—'}</Td>
+												</tr>
+											))}
+										</tbody>
+									</table>
+								</div>
 							</div>
 						) : (
-							<p className="text-sm text-gray-500">No rows returned.</p>
+							<p className="text-sm text-gray-500 dark:text-gray-400">No rows returned.</p>
 						)
 					) : (
-						<p className="text-sm text-gray-500">
+						<p className="text-sm text-gray-500 dark:text-gray-400">
 							No results yet. Enter a doctor type and city, then hit Generate.
 						</p>
 					)}
@@ -321,7 +323,7 @@ export default function DashboardClient({ username }: { username: string }) {
 
 				{/* Failures (optional) */}
 				{!!result?.failures?.length && (
-					<section className="mt-6 rounded-3xl border border-amber-200 bg-amber-50 p-4 text-amber-900">
+					<section className="mt-6 rounded-3xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/20 p-4 text-amber-900 dark:text-amber-200">
 						<h4 className="mb-2 font-semibold">Failures ({result.failures.length})</h4>
 						<pre className="max-h-64 overflow-auto text-xs">
 							{JSON.stringify(result.failures, null, 2)}
@@ -337,18 +339,18 @@ export default function DashboardClient({ username }: { username: string }) {
 
 function StatCard({ label, value }: { label: string; value: React.ReactNode }) {
 	return (
-		<div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-			<div className="text-xs uppercase tracking-wide text-gray-500">{label}</div>
-			<div className="mt-1 text-lg font-semibold text-gray-900">{value as any}</div>
+		<div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm">
+			<div className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">{label}</div>
+			<div className="mt-1 text-lg font-semibold text-gray-900 dark:text-gray-100">{value as any}</div>
 		</div>
 	);
 }
 
-function Th({ children }: { children: React.ReactNode }) {
-	return <th className="px-3 py-2 text-xs font-semibold">{children}</th>;
+function Th({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+	return <th className={`px-3 py-2 text-xs font-semibold ${className}`}>{children}</th>;
 }
-function Td({ children }: { children: React.ReactNode }) {
-	return <td className="px-3 py-2 align-top">{children}</td>;
+function Td({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+	return <td className={`px-3 py-2 align-top ${className}`}>{children}</td>;
 }
 
 /* ---------- CSV helpers (unchanged) ---------- */

@@ -71,7 +71,7 @@ export default function SignupForm({
 	}, [password]);
 
 	return (
-		<div className="min-h-screen w-full bg-[#f5f6fb]">
+		<div className="min-h-screen w-full bg-[#f5f6fb] dark:bg-gray-900">
 			<div className="mx-auto flex min-h-screen max-w-7xl items-stretch">
 				{/* Left visual panel */}
 				<div className="relative hidden w-1/2 flex-1 items-center justify-center p-8 lg:flex">
@@ -87,63 +87,63 @@ export default function SignupForm({
 					{/* Floating feature cards */}
 					<div className="relative w-full h-full pointer-events-none select-none">
 						{/* Auto Dialing */}
-						<Card className="absolute top-12 left-10 animate-float-slow bg-white/90 backdrop-blur-md">
-							<div className="flex items-center gap-2 text-sm text-gray-600">
-								<div className="rounded-xl bg-violet-100 p-2">
-									<PhoneCall className="h-4 w-4 text-violet-600" />
+						<Card className="absolute top-12 left-10 animate-float-slow bg-white/90 dark:bg-gray-800/90 backdrop-blur-md">
+							<div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+								<div className="rounded-xl bg-violet-100 dark:bg-violet-900/30 p-2">
+									<PhoneCall className="h-4 w-4 text-violet-600 dark:text-violet-400" />
 								</div>
 								Auto Dialing
 							</div>
-							<div className="mt-2 text-xl font-semibold">500+ calls/day</div>
-							<div className="text-xs text-gray-400">Scale outreach with ease</div>
+							<div className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-100">500+ calls/day</div>
+							<div className="text-xs text-gray-400 dark:text-gray-500">Scale outreach with ease</div>
 						</Card>
 
 						{/* AI Agent */}
-						<Card className="absolute top-1/3 right-12 animate-float-fast bg-white/90 backdrop-blur-md">
-							<div className="flex items-center gap-2 text-sm text-gray-600">
-								<div className="rounded-xl bg-emerald-100 p-2">
-									<Bot className="h-4 w-4 text-emerald-600" />
+						<Card className="absolute top-1/3 right-12 animate-float-fast bg-white/90 dark:bg-gray-800/90 backdrop-blur-md">
+							<div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+								<div className="rounded-xl bg-emerald-100 dark:bg-emerald-900/30 p-2">
+									<Bot className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
 								</div>
 								AI Agent
 							</div>
-							<div className="mt-2 text-xl font-semibold">Answers & saves info</div>
-							<div className="text-xs text-gray-400">Never miss a call</div>
+							<div className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-100">Answers & saves info</div>
+							<div className="text-xs text-gray-400 dark:text-gray-500">Never miss a call</div>
 						</Card>
 
 						{/* Find Professionals */}
-						<Card className="absolute bottom-20 left-1/4 animate-float-medium bg-white/90 backdrop-blur-md">
-							<div className="flex items-center gap-2 text-sm text-gray-600">
-								<div className="rounded-xl bg-sky-100 p-2">
-									<Search className="h-4 w-4 text-sky-600" />
+						<Card className="absolute bottom-20 left-1/4 animate-float-medium bg-white/90 dark:bg-gray-800/90 backdrop-blur-md">
+							<div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+								<div className="rounded-xl bg-sky-100 dark:bg-sky-900/30 p-2">
+									<Search className="h-4 w-4 text-sky-600 dark:text-sky-400" />
 								</div>
 								Find Professionals
 							</div>
-							<div className="mt-2 text-xl font-semibold">Thousands nearby</div>
-							<div className="text-xs text-gray-400">Verified health workers</div>
+							<div className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-100">Thousands nearby</div>
+							<div className="text-xs text-gray-400 dark:text-gray-500">Verified health workers</div>
 						</Card>
 
 						{/* Staffing */}
-						<Card className="absolute top-1/2 left-16 animate-float-slow bg-white/90 backdrop-blur-md">
-							<div className="flex items-center gap-2 text-sm text-gray-600">
-								<div className="rounded-xl bg-amber-100 p-2">
-									<Users className="h-4 w-4 text-amber-600" />
+						<Card className="absolute top-1/2 left-16 animate-float-slow bg-white/90 dark:bg-gray-800/90 backdrop-blur-md">
+							<div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+								<div className="rounded-xl bg-amber-100 dark:bg-amber-900/30 p-2">
+									<Users className="h-4 w-4 text-amber-600 dark:text-amber-400" />
 								</div>
 								Staffing & Recruitment
 							</div>
-							<div className="mt-2 text-xl font-semibold">Hire with ease</div>
-							<div className="text-xs text-gray-400">On-demand workforce</div>
+							<div className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-100">Hire with ease</div>
+							<div className="text-xs text-gray-400 dark:text-gray-500">On-demand workforce</div>
 						</Card>
 
 						{/* Ease of Use */}
-						<Card className="absolute bottom-12 right-16 animate-float-medium bg-white/90 backdrop-blur-md">
-							<div className="flex items-center gap-2 text-sm text-gray-600">
-								<div className="rounded-xl bg-pink-100 p-2">
-									<Sparkles className="h-4 w-4 text-pink-600" />
+						<Card className="absolute bottom-12 right-16 animate-float-medium bg-white/90 dark:bg-gray-800/90 backdrop-blur-md">
+							<div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+								<div className="rounded-xl bg-pink-100 dark:bg-pink-900/30 p-2">
+									<Sparkles className="h-4 w-4 text-pink-600 dark:text-pink-400" />
 								</div>
 								Ease of Use
 							</div>
-							<div className="mt-2 text-xl font-semibold">Plug & Play</div>
-							<div className="text-xs text-gray-400">Simple, intuitive design</div>
+							<div className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-100">Plug & Play</div>
+							<div className="text-xs text-gray-400 dark:text-gray-500">Simple, intuitive design</div>
 						</Card>
 					</div>
 				</div>
@@ -155,10 +155,10 @@ export default function SignupForm({
 							<div className="grid h-8 w-8 place-items-center rounded-md bg-violet-600 text-white shadow-lg">
 								O
 							</div>
-							<span className="text-xl font-semibold tracking-tight">Outreach System</span>
+							<span className="text-xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Outreach System</span>
 						</div>
-						<h1 className="mb-1 text-2xl font-bold">Create an account</h1>
-						<p className="mb-3 text-sm text-gray-500">
+						<h1 className="mb-1 text-2xl font-bold text-gray-900 dark:text-gray-100">Create an account</h1>
+						<p className="mb-3 text-sm text-gray-500 dark:text-gray-400">
 							Join us and finding medical professionals...
 						</p>
 
@@ -184,11 +184,11 @@ export default function SignupForm({
 									{state.message}
 								</div>
 							) : null}
-							<label className="block text-sm font-medium text-gray-700" htmlFor="username">
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="username">
 								Username
 							</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<User className="h-5 w-5" />
 								</span>
 								<input
@@ -196,22 +196,22 @@ export default function SignupForm({
 									name="username"
 									onChange={(e) => setName(e.target.value)}
 									placeholder="Jane Doe"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
 									aria-invalid={Boolean(state?.errors?.username?.length) || undefined}
 									aria-describedby={state?.errors?.username?.length ? 'username-error' : undefined}
 								/>
 								{state?.errors?.username?.map((err, i) => (
-									<p id="username-error" key={i} className="mt-1 text-xs text-rose-600">
+									<p id="username-error" key={i} className="mt-1 text-xs text-rose-600 dark:text-rose-400">
 										{err}
 									</p>
 								))}
 							</div>
 
-							<label className="block text-sm font-medium text-gray-700" htmlFor="email">
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="email">
 								Email
 							</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<Mail className="h-5 w-5" />
 								</span>
 								<input
@@ -221,22 +221,22 @@ export default function SignupForm({
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
 									placeholder="you@example.com"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 pl-11 pr-4 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
 									aria-invalid={Boolean(state?.errors?.email?.length) || undefined}
 									aria-describedby={state?.errors?.email?.length ? 'email-error' : undefined}
 								/>
 								{state?.errors?.email?.map((err, i) => (
-									<p id="email-error" key={i} className="mt-1 text-xs text-red-600">
+									<p id="email-error" key={i} className="mt-1 text-xs text-red-600 dark:text-red-400">
 										{err}
 									</p>
 								))}
 							</div>
 
-							<label className="block text-sm font-medium text-gray-700" htmlFor="password">
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="password">
 								Password
 							</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/4 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/4 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<Lock className="h-5 w-5" />
 								</span>
 								<input
@@ -246,18 +246,18 @@ export default function SignupForm({
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
 									placeholder="••••••••"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-11 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 pl-11 pr-11 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
 									aria-invalid={Boolean(state?.errors?.password?.length) || undefined}
 									aria-describedby={state?.errors?.password?.length ? 'password-error' : undefined}
 								/>
 								<button
 									type="button"
 									onClick={() => setShowPw((s) => !s)}
-									className="absolute right-3 top-1/4 -translate-y-1/2 rounded-md p-1 text-gray-500 hover:bg-gray-100"
+									className="absolute right-3 top-1/4 -translate-y-1/2 rounded-md p-1 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
 								>
 									{showPw ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
 								</button>
-								<div className="mt-1 h-2 w-full overflow-hidden rounded bg-gray-200">
+								<div className="mt-1 h-2 w-full overflow-hidden rounded bg-gray-200 dark:bg-gray-700">
 									<div
 										className={
 											(strength / 5) * 100 < 50
@@ -267,21 +267,21 @@ export default function SignupForm({
 										style={{ width: `${(strength / 5) * 100}%` }}
 									/>
 								</div>
-								<p className="mt-1 text-xs text-gray-500">
+								<p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
 									Use 8+ chars, mix upper/lowercase, numbers and symbols.
 								</p>
 								{state?.errors?.password?.map((err, i) => (
-									<p id="password-error" key={i} className="mt-1 text-xs text-red-700">
+									<p id="password-error" key={i} className="mt-1 text-xs text-red-700 dark:text-red-400">
 										{err}
 									</p>
 								))}
 							</div>
 
-							<label className="block text-sm font-medium text-gray-700" htmlFor="confirmPassword">
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="confirmPassword">
 								Confirm password
 							</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<Lock className="h-5 w-5" />
 								</span>
 								<input
@@ -291,7 +291,7 @@ export default function SignupForm({
 									value={confirm}
 									onChange={(e) => setConfirm(e.target.value)}
 									placeholder="••••••••"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-11 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 pl-11 pr-11 outline-none ring-offset-2 transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
 									aria-invalid={Boolean(state?.errors?.confirmPassword?.length) || undefined}
 									aria-describedby={
 										state?.errors?.confirmPassword?.length ? 'confirmPassword-error' : undefined
@@ -300,30 +300,30 @@ export default function SignupForm({
 								<button
 									type="button"
 									onClick={() => setShowPw2((s) => !s)}
-									className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-500 hover:bg-gray-100"
+									className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
 								>
 									{showPw2 ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
 								</button>
 								{state?.errors?.confirmPassword?.map((err, i) => (
-									<p id="confirmPassword-error" key={i} className="mt-1 text-xs text-red-700">
+									<p id="confirmPassword-error" key={i} className="mt-1 text-xs text-red-700 dark:text-red-400">
 										{err}
 									</p>
 								))}
 							</div>
 
-							<label className="mt-1 inline-flex items-center gap-2 text-sm text-gray-700">
+							<label className="mt-1 inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
 								<input
 									type="checkbox"
 									checked={agree}
 									onChange={(e) => setAgree(e.target.checked)}
-									className="h-4 w-4 rounded border-gray-300 text-violet-600 focus:ring-violet-500"
+									className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-violet-600 focus:ring-violet-500"
 								/>
 								I agree to the{' '}
-								<a href="#" className="text-violet-600 hover:underline">
+								<a href="#" className="text-violet-600 dark:text-violet-400 hover:underline">
 									Terms and Privacy
 								</a>
 							</label>
-							{errors.agree && <p className="-mt-1 text-xs text-rose-600">{errors.agree}</p>}
+							{errors.agree && <p className="-mt-1 text-xs text-rose-600 dark:text-rose-400">{errors.agree}</p>}
 
 							<button
 								type="submit"
@@ -353,9 +353,9 @@ export default function SignupForm({
 							</button>
 
 							<div className="flex items-center gap-3">
-								<div className="h-px flex-1 bg-gray-200" />
-								<span className="text-xs uppercase tracking-wider text-gray-400">or</span>
-								<div className="h-px flex-1 bg-gray-200" />
+								<div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
+								<span className="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500">or</span>
+								<div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
 							</div>
 							<div className="flex items-center justify-center gap-4">
 								<SocialButton label="Sign up with Twitter" href="#twitter">
@@ -369,9 +369,9 @@ export default function SignupForm({
 								</SocialButton>
 							</div>
 
-							<p className="text-center text-sm text-gray-600">
+							<p className="text-center text-sm text-gray-600 dark:text-gray-400">
 								Already have an account?{' '}
-								<Link href={'/login'} className="font-medium text-violet-600 hover:underline">
+								<Link href={'/login'} className="font-medium text-violet-600 dark:text-violet-400 hover:underline">
 									Log in
 								</Link>
 							</p>
@@ -396,7 +396,7 @@ function SocialButton({
 		<a
 			href={href}
 			aria-label={label}
-			className="grid h-10 w-10 place-items-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:shadow-md"
+			className="grid h-10 w-10 place-items-center rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm transition hover:shadow-md"
 		>
 			{children}
 		</a>
@@ -407,7 +407,7 @@ type CardProps = React.HTMLAttributes<HTMLDivElement>;
 
 function Card({ children, className, ...props }: CardProps) {
 	return (
-		<div className={`px-6 py-3 rounded-xl bg-white shadow ${className ?? ''}`} {...props}>
+		<div className={`px-6 py-3 rounded-xl bg-white dark:bg-gray-800 shadow ${className ?? ''}`} {...props}>
 			{children}
 		</div>
 	);

@@ -44,7 +44,7 @@ export default function MaterioLogin({
 	}, [state?.shouldRedirect, router]);
 
 	return (
-		<div className="min-h-screen w-full bg-[#f5f6fb]">
+		<div className="min-h-screen w-full bg-[#f5f6fb] dark:bg-gray-900">
 			<div className="mx-auto flex min-h-screen max-w-7xl items-stretch">
 				{/* Left visual panel */}
 				<div className="relative hidden w-1/2 flex-1 items-center justify-center p-8 lg:flex">
@@ -60,30 +60,30 @@ export default function MaterioLogin({
 					<div className="pointer-events-none select-none">
 						<div className="mb-6 inline-flex gap-4">
 							<Card>
-								<div className="flex items-center gap-2 text-sm text-gray-500">
-									<div className="rounded-xl bg-violet-100 p-2">
-										<TrendingUp className="h-4 w-4" />
+								<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+									<div className="rounded-xl bg-violet-100 dark:bg-violet-900/30 p-2">
+										<TrendingUp className="h-4 w-4 text-violet-600 dark:text-violet-400" />
 									</div>
 									Institutions
 								</div>
-								<div className="mt-2 text-3xl font-semibold">862</div>
-								<div className="text-xs text-gray-400">calls answered</div>
+								<div className="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100">862</div>
+								<div className="text-xs text-gray-400 dark:text-gray-500">calls answered</div>
 							</Card>
 							<Card>
-								<div className="text-sm text-gray-500">$86.4k</div>
-								<div className="mt-3 h-16 w-24 rounded-lg bg-gradient-to-b from-white to-gray-100" />
-								<div className="mt-2 text-xs text-gray-400">Cost saved</div>
+								<div className="text-sm text-gray-500 dark:text-gray-400">$86.4k</div>
+								<div className="mt-3 h-16 w-24 rounded-lg bg-gradient-to-b from-white to-gray-100 dark:from-gray-700 dark:to-gray-800" />
+								<div className="mt-2 text-xs text-gray-400 dark:text-gray-500">Cost saved</div>
 							</Card>
 						</div>
 						<Card>
-							<div className="flex items-center gap-2 text-sm text-gray-500">
-								<div className="rounded-xl bg-amber-100 p-2">
-									<Leaf className="h-4 w-4" />
+							<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+								<div className="rounded-xl bg-amber-100 dark:bg-amber-900/30 p-2">
+									<Leaf className="h-4 w-4 text-amber-600 dark:text-amber-400" />
 								</div>
 								daily scrapes
 							</div>
-							<div className="mt-2 text-3xl font-semibold">2,856</div>
-							<div className="text-xs text-emerald-500">+18.2%</div>
+							<div className="mt-2 text-3xl font-semibold text-gray-900 dark:text-gray-100">2,856</div>
+							<div className="text-xs text-emerald-500 dark:text-emerald-400">+18.2%</div>
 						</Card>
 					</div>
 				</div>
@@ -96,13 +96,13 @@ export default function MaterioLogin({
 							<div className="grid h-8 w-8 place-items-center rounded-md bg-violet-600 text-white shadow-lg">
 								O
 							</div>
-							<span className="text-xl font-semibold tracking-tight">Outreach System</span>
+							<span className="text-xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Outreach System</span>
 						</div>
 
-						<h1 className="mb-1 text-2xl font-bold">
+						<h1 className="mb-1 text-2xl font-bold text-gray-900 dark:text-gray-100">
 							Welcome to our platform! <span className="align-middle">👋🏻</span>
 						</h1>
-						<p className="mb-8 text-sm text-gray-500">
+						<p className="mb-8 text-sm text-gray-500 dark:text-gray-400">
 							Please sign in to your account and streamline your work.
 						</p>
 
@@ -131,11 +131,11 @@ export default function MaterioLogin({
 									{state.message}
 								</div>
 							) : null}
-							<label className="block text-sm font-medium text-gray-700" htmlFor="username">
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="username">
 								Username
 							</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<User className="h-5 w-5" />
 								</span>
 								<input
@@ -144,21 +144,21 @@ export default function MaterioLogin({
 									type="text"
 									required
 									placeholder="username"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-4"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 pl-11 pr-4"
 								/>
 								{state?.errors?.username?.map((err, i) => (
-									<p id="username-error" key={i} className="mt-1 text-xs text-red-700">
+									<p id="username-error" key={i} className="mt-1 text-xs text-red-700 dark:text-red-400">
 										{err}
 									</p>
 								))}
 							</div>
 
 							{/* Password */}
-							<label className="block text-sm font-medium text-gray-700" htmlFor="password">
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="password">
 								Password
 							</label>
 							<div className="relative">
-								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+								<span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
 									<Lock className="h-5 w-5" />
 								</span>
 								<input
@@ -169,13 +169,13 @@ export default function MaterioLogin({
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
 									placeholder="••••••••"
-									className="h-12 w-full rounded-xl border border-gray-300 pl-11 pr-11"
+									className="h-12 w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 pl-11 pr-11"
 								/>
 								<button
 									type="button"
 									aria-label={showPassword ? 'Hide password' : 'Show password'}
 									onClick={() => setShowPassword((s) => !s)}
-									className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-500 hover:bg-gray-100"
+									className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
 								>
 									{showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
 								</button>
@@ -183,16 +183,16 @@ export default function MaterioLogin({
 
 							{/* Remember Me */}
 							<div className="flex items-center justify-between pt-1">
-								<label className="inline-flex items-center gap-2 text-sm text-gray-700">
+								<label className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
 									<input
 										type="checkbox"
 										id="rememberMe"
 										name="rememberMe" // ✅ matches backend
-										className="h-4 w-4 rounded border-gray-300 text-violet-600 focus:ring-violet-500"
+										className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-violet-600 focus:ring-violet-500"
 									/>
 									Remember me
 								</label>
-								<a href="#forgot" className="text-sm text-violet-600 hover:underline">
+								<a href="#forgot" className="text-sm text-violet-600 dark:text-violet-400 hover:underline">
 									Forgot password?
 								</a>
 							</div>
@@ -224,17 +224,17 @@ export default function MaterioLogin({
 								<span>{pending ? 'Logging in...' : 'Log In'}</span>
 							</button>
 
-							<p className="text-center text-sm text-gray-600">
+							<p className="text-center text-sm text-gray-600 dark:text-gray-400">
 								New on our platform?{' '}
-								<Link href="/register" className="font-medium text-violet-600 hover:underline">
+								<Link href="/register" className="font-medium text-violet-600 dark:text-violet-400 hover:underline">
 									Create an account
 								</Link>
 							</p>
 
 							<div className="flex items-center gap-3">
-								<div className="h-px flex-1 bg-gray-200" />
-								<span className="text-xs uppercase tracking-wider text-gray-400">or</span>
-								<div className="h-px flex-1 bg-gray-200" />
+								<div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
+								<span className="text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500">or</span>
+								<div className="h-px flex-1 bg-gray-200 dark:bg-gray-700" />
 							</div>
 							<div className="flex items-center justify-center gap-4">
 								<SocialButton label="Sign in with Twitter" href="#twitter">
@@ -268,7 +268,7 @@ export default function MaterioLogin({
 
 function Card({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="m-2 inline-flex w-40 flex-col rounded-2xl border border-white/60 bg-white/80 p-4 shadow-xl backdrop-blur-sm">
+		<div className="m-2 inline-flex w-40 flex-col rounded-2xl border border-white/60 dark:border-gray-700/60 bg-white/80 dark:bg-gray-800/80 p-4 shadow-xl backdrop-blur-sm">
 			{children}
 		</div>
 	);
@@ -287,7 +287,7 @@ function SocialButton({
 		<a
 			href={href}
 			aria-label={label}
-			className="grid h-10 w-10 place-items-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:shadow-md"
+			className="grid h-10 w-10 place-items-center rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm transition hover:shadow-md"
 		>
 			{children}
 		</a>

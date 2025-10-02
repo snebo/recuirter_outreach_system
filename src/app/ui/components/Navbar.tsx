@@ -15,22 +15,22 @@ export default function Navbar({ username }: { username: string }) {
 	};
 
 	return (
-		<nav className="sticky top-0 z-30 w-full border-b border-gray-200 bg-white/80 backdrop-blur">
+		<nav className="sticky top-0 z-30 w-full border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur">
 			<div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
 				{/* Brand */}
 				<Link href="/" className="flex items-center gap-2">
 					<div className="grid h-8 w-8 place-items-center rounded-md bg-violet-600 text-white shadow-lg">
 						O
 					</div>
-					<span className="text-base font-semibold tracking-tight">Outreach System</span>
+					<span className="text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100">Outreach System</span>
 				</Link>
 
 				{/* Right actions */}
 				<div className="flex items-center gap-2">
-					<span className="hidden text-sm text-gray-600 sm:block">Hi, {username}</span>
+					<span className="hidden text-sm text-gray-600 dark:text-gray-400 sm:block">Hi, {username}</span>
 					<Link
 						href="/profile"
-						className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm shadow-sm transition hover:bg-gray-50"
+						className="inline-flex items-center gap-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm shadow-sm transition hover:bg-gray-50 dark:hover:bg-gray-700"
 					>
 						<UserIcon className="h-4 w-4" /> Profile
 					</Link>
